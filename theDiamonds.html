@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Diamonds Game</title>
+    
+</head>
+<body>
+    <div class="container">
+        <p id="win-num"></p>
+        <p id="count-current"></p>
+        <h1 id="message"></h1>
+    </div>
+
+    <div class="buttons">
+        <img class= "img-btn" src="diamonds/blueDiamond.jpg" alt="Diamond" style="width:100px;height:100px;">
+        <img class= "img-btn" src="diamonds/purpleDiamond.jpg" alt="Diamond" style="width:100px;height:100px;">
+        <img class= "img-btn" src="diamonds/redDiamond.jpg" alt="Diamond" style="width:100px;height:100px;">
+        <img class= "img-btn" src="diamonds/whiteDiamond.jpg" alt="Diamond" style="width:100px;height:100px;align-content: center;">
+    </div> 
+    
+    <script>
+    var winGuess = 350;
+    var counter= 0; 
+    var winNumElement = document.getElementById("win-num");
+    var currentCounterElement = document.getElementById("count-current");
+    var messageElement = document.getElementById("message");
+    var buttons = document.getElementsByClassName("img-btn");
+    
+    for(var i = 0; i < buttons.length; i++){
+        buttons[i].addEventListener ("click", clickDiamond, false);
+    };
+    messageElement.innerHTML="To Win Reach This No. : " + winGuess; 
+    
+    // messageElement.innerHTML = 'Winning No. ='+ winGuess;
+    
+    function clickDiamond() {
+        
+        counter+= Math.floor(Math.random()*100);
+        messageElement.innerHTML="You Are Reaching: " +counter; 
+        if (counter===winGuess) {
+            messageElement.innerHTML="You Win!";
+        }
+        if (counter>winGuess) {
+            messageElement.innerHTML="You Lose! ... You Reached :" +counter;
+        }
+    }
+
+    </script>
+</body>
+</html>
